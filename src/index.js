@@ -18,7 +18,9 @@ class ProductCategoryRow extends React.Component {
 
     return (
       <tr>
-        <th colSpan='2'>{category}</th>
+        <th className='category' colSpan='2'>
+          {category}
+        </th>
       </tr>
     );
   }
@@ -44,7 +46,9 @@ class ProductTable extends React.Component {
     let lastCategory = null;
 
     this.props.products.forEach((product) => {
-      if (product.name.indexOf(filterText) === -1) {
+      const name = product.name.toLowerCase();
+
+      if (name.indexOf(filterText) === -1) {
         return;
       }
       if (inStockOnly && !product.stocked) {
@@ -81,11 +85,12 @@ class SearchBar extends React.Component {
           onChange={(e) => this.props.onFilterTextChange(e.target.value)}
         />
         <input
+          id='stockCheck'
           type='checkbox'
           onChange={(e) => this.props.onInStockChange(e.target.checked)}
           checked={this.props.inStockOnly}
         />{" "}
-        Only show products in stock
+        <label for='stockCheck'>Only show products in stock</label>
       </form>
     );
   }
