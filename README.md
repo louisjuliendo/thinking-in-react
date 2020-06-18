@@ -1,3 +1,9 @@
+## Screenshot
+
+<p align="center">
+  <img src="public/table-ss.png"/>
+</p>
+
 ## Getting started
 
 - This exercise will walk you through the thought process of building a searchable product data table using React.
