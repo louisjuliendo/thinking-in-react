@@ -85,21 +85,13 @@ function FilterableProductTable({ products }) {
   const [filterText, setFilterText] = useState("");
   const [inStockOnly, setInStockOnly] = useState(false);
 
-  function handleFilterTextChange(e) {
-    setFilterText(e.target.value);
-  }
-
-  function handleInStockChange(e) {
-    setInStockOnly(e.target.checked);
-  }
-
   return (
     <div>
       <SearchBar
         filterText={filterText}
         inStockOnly={inStockOnly}
-        onFilterTextChange={(e) => handleFilterTextChange(e)}
-        onInStockChange={(e) => handleInStockChange(e)}
+        onFilterTextChange={(e) => setFilterText(e.target.value)}
+        onInStockChange={(e) => setInStockOnly(e.target.checked)}
       />
       <ProductTable products={products} filterText={filterText} inStockOnly={inStockOnly} />
     </div>
